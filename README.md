@@ -15,7 +15,7 @@ You can attach your AWS credentials using environment variables, but this is not
 
 Instead, you can attach your AWS Credentials file by mounting it in:
 
-```docker run -i -t --rm -v mycredentialsfile:/home/ubuntu/.aws/credentials onesysadmin/awscli aws <command> <options>```
+```docker run -i -t --rm -v mycredentialsfile:/root/.aws/credentials onesysadmin/awscli aws <command> <options>```
 
 Your credential file would look something like this:
 
@@ -41,7 +41,7 @@ If you include the aws crendentials inside the profile, you do not need to add a
 
 Once you have the config file, you can mount it into the docker image.
 
-```docker run -i -t --rm -v mycliconfig:/home/ubuntu/.aws/config onesysadmin/awscli aws <command> <options>```
+```docker run -i -t --rm -v mycliconfig:/root/.aws/config onesysadmin/awscli aws <command> <options>```
 
 ## Creating multiple profiles
 
@@ -74,10 +74,10 @@ aws_secret_access_key=je7MtGbClwBF/2Zp9Utk/h3yCo8nvbEXAMPLEKEY
 
 Once the profile is created, you can then use `--profile` switch to use the profile:
 
-```docker run -i -t --rm -v mycliconfig:/home/ubuntu/.aws/config onesysadmin/awscli aws --profile test-user <command> <options>```
+```docker run -i -t --rm -v mycliconfig:/root/.aws/config onesysadmin/awscli aws --profile test-user <command> <options>```
 
 Alternatively, you can set the environment `AWS_DEFAULT_PROFILE`:
 
-```docker run -i -t --rm -v mycliconfig:/home/ubuntu/.aws/config onesysadmin/awscli -e AWS_DEFAULT_PROFILE=test-user aws <command> <options>```
+```docker run -i -t --rm -v mycliconfig:/root/.aws/config onesysadmin/awscli -e AWS_DEFAULT_PROFILE=test-user aws <command> <options>```
 
 For more command options, please see [AWS CLI Getting Started documentation](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html).
