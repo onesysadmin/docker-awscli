@@ -1,10 +1,9 @@
-FROM ubuntu:trusty
+FROM alpine:latest
+
+ENTRYPOINT ["aws"]
 
 # gvm requires curl and unzip
-RUN apt-get update && \
-    apt-get install -yqq --no-install-recommends python-pip && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+RUN apk --no-cache add python py-pip
 
 # install newest version of awscli available
 RUN pip install awscli
