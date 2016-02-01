@@ -3,6 +3,10 @@ docker-awscli
 
 A docker container that has awscli installed to run.
 
+## Docker Memory Limit
+
+If you need to enter a memory limit to run the docker, ie. Amazon ECS, the awscli command will need at least 40MB of memory to run.  If possible, you should test the command you're going to run.  Upping the memory limit to 80MB-100MB will be safer.
+
 ## Usage
 
 The container is primarily used to launch awscli util to run the `aws` command.  To run it using instance profile credentials (or not providing any credentials), use:
